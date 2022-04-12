@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 
+const MonthlyCollection = require("./monthlyCollection.js");
+
 const ptaxSchema = new mongoose.Schema({
   _id: mongoose.Schema.Types.ObjectId,
   startYear: String,
@@ -8,12 +10,7 @@ const ptaxSchema = new mongoose.Schema({
   openingBalance: String,
   currentYearDemand: String,
   monthlyCollection: [
-    {
-      year: String,
-      month: Number,
-      OBC: String,
-      CYD: String,
-    },
+    { type: mongoose.Schema.Types.ObjectId, ref: MonthlyCollection },
   ],
 });
 
