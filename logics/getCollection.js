@@ -7,8 +7,14 @@ const ptaxColl = require("../Models/monthlyCollection");
 
 const getCollection = async (collectionType, year, month) => {
   let collection = [];
-  let det = await getGeneralData(PtaxGeneral);
-  console.log(`gahdg ${det}`);
+  try {
+
+    let det = await getGeneralData(PtaxGeneral);
+    console.log(`gahdg ${det}`);
+  }
+  catch (err) {
+    console.log(`error ${err}`);
+  }
   ptaxColl
     .find()
     .where({ year: 2021, collectionType: 2 })
