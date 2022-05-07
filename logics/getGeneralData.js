@@ -1,5 +1,5 @@
 const getGeneralData = (collectionName) => {
-  collectionName.find().then((data) => console.log(`innr ${data}`));
+  return collectionName.find()
 };
 
 module.exports = getGeneralData;
