@@ -8,19 +8,17 @@ const ptaxColl = require("../Models/monthlyCollection");
 const getCollection = async (collectionType, year, month) => {
   let collection = [];
   try {
-
     let det = await getGeneralData(PtaxGeneral);
     console.log(`gahdg ${det}`);
-  }
-  catch (err) {
+  } catch (err) {
     console.log(`error ${err}`);
   }
   ptaxColl
-    .find()
-    .where({ year: 2021, collectionType: 2 })
-    .where("month")
-    .gt(2)
-    .lt(12)
+    .find({ year: ["2021", "2022"] })
+    // .where({ year: 2021, collectionType: 1 })
+    // .where("month")
+    // .gt(2)
+    // .lt(12)
     .exec()
     .then((data) => {
       collection = [...data];
