@@ -1,11 +1,13 @@
 const mongoose = require("mongoose");
 
-mongoose
-  .connect(process.env.MONGODB_URI)
-  .then(() => console.log("connected"))
-  .catch((error) => console.log(error));
+const connectDB = require('./createDBConnection');
+
+connectDB();
+
+
 
 const getCollection = require("./logics/getCollection");
+
 
 const PtaxGeneral = require("./Models/ptaxGeneral");
 const ptaxColl = require("./Models/monthlyCollection");
