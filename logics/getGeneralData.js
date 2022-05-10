@@ -1,5 +1,5 @@
-const getGeneralData = (collectionName) => {
-  return collectionName.find().where({ startYear: "2021", endYear: "2022" })
+const getGeneralData = (collectionName, startYear, endYear) => {
+  return collectionName.find().where({ startYear, endYear }).exec();
 };
 
 module.exports = getGeneralData;

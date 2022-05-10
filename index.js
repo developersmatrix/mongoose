@@ -1,13 +1,10 @@
 const mongoose = require("mongoose");
 
-const connectDB = require('./createDBConnection');
+const connectDB = require("./createDBConnection");
 
 connectDB();
 
-
-
 const getCollection = require("./logics/getCollection");
-
 
 const PtaxGeneral = require("./Models/ptaxGeneral");
 const ptaxColl = require("./Models/monthlyCollection");
@@ -25,9 +22,9 @@ const data = ptaxColl({
   _id: new mongoose.Types.ObjectId(),
   collectionType: 1,
   year: 2022,
-  month: 2,
-  OBC: 1.09,
-  CYD: 5.01,
+  month: 3,
+  OBC: 3.54,
+  CYD: 23.83,
 });
 
 // data
@@ -44,6 +41,4 @@ const currentMonth = "May";
 //   .exec()
 //   .then((data) => console.log(data));
 
-getCollection();
-
-
+getCollection(1, 2022, 9);
