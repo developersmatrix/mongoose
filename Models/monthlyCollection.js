@@ -2,11 +2,11 @@ const mongoose = require("mongoose");
 
 const monthlyCollectionSchema = mongoose.Schema({
   _id: mongoose.Schema.Types.ObjectId,
-  collectionType: Number,
+  // collectionType: Number,
   year: Number,
   month: Number,
   OBC: Number,
   CYD: Number,
 });
 
-module.exports = mongoose.model("MonthlyCollection", monthlyCollectionSchema);
+module.exports = monthlyCollectionSchema;
