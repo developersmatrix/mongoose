@@ -22,13 +22,36 @@ const ptax = require("./Models/ptax");
 
 // const data = new ptax({
 //   _id: new mongoose.Types.ObjectId(),
-//   startYear: "2021",
+//   startYear: "2021",git
 //   endYear: "2022",
 //   totalNoOfProperties: "4546",
 //   openingBalance: "5.08",
 //   currentYearDemand: "75.00",
 //   monthlyCollection: [
 //     {
+//   startYear: 2021,
+//   endYear: 2022,
+//   totalNoOfProperties: 4546,
+//   openingBalance: 5.08,
+//   currentYearDemand: 75.0,
+//   monthlyCollection: [
+//     {
+//       _id: new mongoose.Types.ObjectId(),
+//       // collectionType: 1,
+//       year: 2022,
+//       month: 3,
+//       OBC: 3.54,
+//       CYD: 23.83,
+//     },
+//   ],
+// });
+
+// ptax
+//   .findById()
+//   .exec()
+//   .then((data) => {
+//     console.log(data);
+//     data.monthlyCollection.push({
 //       _id: new mongoose.Types.ObjectId(),
 //       collectionType: 1,
 //       year: 2022,
