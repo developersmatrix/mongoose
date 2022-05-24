@@ -1,8 +1,15 @@
 const mongoose = require("mongoose");
 
-const connectDB = require("./createDBConnection");
+// const connectDB = require("./createDBConnection");
 
-connectDB();
+// connectDB();
+mongoose
+  .connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log("Database connected!"))
+  .catch((err) => console.log(err));
 
 const getCollection = require("./logics/getCollection");
 
@@ -22,24 +29,24 @@ const updatePtax = require("./logics/updatePtax");
 //   currentYearDemand: "75.00",
 // });
 
-const data = new ptax({
-  _id: new mongoose.Types.ObjectId(),
-  startYear: 2021,
-  endYear: 2022,
-  totalNoOfProperties: 4546,
-  openingBalance: 5.08,
-  currentYearDemand: 75.0,
-  monthlyCollection: [
-    {
-      _id: new mongoose.Types.ObjectId(),
-      // collectionType: 1,
-      year: 2022,
-      month: 3,
-      OBC: 3.54,
-      CYD: 23.83,
-    },
-  ],
-});
+// const data = new ptax({
+//   _id: new mongoose.Types.ObjectId(),
+//   startYear: 2021,
+//   endYear: 2022,
+//   totalNoOfProperties: 4546,
+//   openingBalance: 5.08,
+//   currentYearDemand: 75.0,
+//   monthlyCollection: [
+//     {
+//       _id: new mongoose.Types.ObjectId(),
+//       // collectionType: 1,
+//       year: 2022,
+//       month: 3,
+//       OBC: 3.54,
+//       CYD: 23.83,
+//     },
+//   ],
+// });
 
 // ptax
 //   .findById()

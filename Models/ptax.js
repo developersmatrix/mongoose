@@ -18,7 +18,15 @@ const propertyTaxSchema = mongoose.Schema({
   totalNoOfProperties: Number,
   openingBalance: Number,
   currentYearDemand: Number,
-  monthlyCollection: [mcSchema],
+  monthlyCollection: [
+    {
+      _id: mongoose.Schema.Types.ObjectId,
+      year: Number,
+      month: Number,
+      OBC: Number,
+      CYD: Number,
+    },
+  ],
 });
 
 module.exports = mongoose.model("PropertyTax", propertyTaxSchema);
