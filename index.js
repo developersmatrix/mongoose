@@ -1,8 +1,15 @@
 const mongoose = require("mongoose");
 
-const connectDB = require("./createDBConnection");
+// const connectDB = require("./createDBConnection");
 
-connectDB();
+// connectDB();
+mongoose
+  .connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log("Database connected!"))
+  .catch((err) => console.log(err));
 
 const getCollection = require("./logics/getCollection");
 
@@ -10,6 +17,8 @@ const PtaxGeneral = require("./Models/ptaxGeneral");
 const ptaxColl = require("./Models/monthlyCollection");
 
 const ptax = require("./Models/ptax");
+
+const updatePtax = require("./logics/updatePtax");
 
 // const data = new PtaxGeneral({
 //   _id: new mongoose.Types.ObjectId(),
@@ -22,11 +31,12 @@ const ptax = require("./Models/ptax");
 
 // const data = new ptax({
 //   _id: new mongoose.Types.ObjectId(),
-//   startYear: "2021",git
-//   endYear: "2022",
-//   totalNoOfProperties: "4546",
-//   openingBalance: "5.08",
-//   currentYearDemand: "75.00",
+
+//   startYear: 2021,
+//   endYear: 2022,
+//   totalNoOfProperties: 4546,
+//   openingBalance: 5.08,
+//   currentYearDemand: 75.0,
 //   monthlyCollection: [
 //     {
 //   startYear: 2021,
@@ -53,7 +63,7 @@ const ptax = require("./Models/ptax");
 //     console.log(data);
 //     data.monthlyCollection.push({
 //       _id: new mongoose.Types.ObjectId(),
-//       collectionType: 1,
+//       // collectionType: 1,
 //       year: 2022,
 //       month: 3,
 //       OBC: 3.54,
@@ -62,22 +72,22 @@ const ptax = require("./Models/ptax");
 //   ],
 // });
 
-ptax
-  .findById("627d2f4f97e44b1a4a85b83d")
-  .exec()
-  .then((data) => {
-    console.log(data);
-    data.monthlyCollection.push({
-      _id: new mongoose.Types.ObjectId(),
-      collectionType: 1,
-      year: 2022,
-      month: 4,
-      OBC: 2.5,
-      CYD: 6.23,
-    });
-    // data.save();
-  })
-  .catch((error) => console.log(error));
+// ptax
+//   .findById()
+//   .exec()
+//   .then((data) => {
+//     console.log(data);
+//     data.monthlyCollection.push({
+//       _id: new mongoose.Types.ObjectId(),
+//       collectionType: 1,
+//       year: 2022,
+//       month: 4,
+//       OBC: 2.5,
+//       CYD: 6.23,
+//     });
+//     // data.save();
+//   })
+//   .catch((error) => console.log(error));
 
 // console.log(data);
 
@@ -105,3 +115,5 @@ const currentMonth = "May";
 //   .then((data) => console.log(data));
 
 // getCollection(1, 2022, 9);
+
+updatePtax();

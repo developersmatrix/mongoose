@@ -2,10 +2,12 @@ const mongoose = require("mongoose");
 
 const ptax = require("../Models/ptax");
 
-const updatePtax = async () => {
-  const query = await ptax.find();
+const getMonthlyCollection = require("./getMonthlyCollection");
 
-  console.log(query);
+const updatePtax = () => {
+  ptax
+    .findOne({ startYear: 2021 })
+    .then((doc) => console.log(doc.monthlyCollection));
 };
 
 module.exports = updatePtax;
